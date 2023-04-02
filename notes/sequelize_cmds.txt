@@ -1,0 +1,9 @@
+npx sequelize model:generate --name Game --attributes gameName:string,releaseYear:integer
+npx sequelize model:generate --name Platform --attributes platform:string
+npx sequelize model:generate --name GamePlatform --attributes gameId:integer,platformId:integer
+npx sequelize model:generate --name Review --attributes review:text,rating:integer,gameId:integer
+
+npx sequelize seed:generate --name game-data
+npx sequelize seed:generate --name platform-data
+npx sequelize seed:generate --name gameplatform-data
+npx sequelize seed:generate --name review-data
