@@ -52,13 +52,18 @@ W11D2
 Demo the front end (show what we're aiming for)
 Set up starter (start from scratch using steps above)
 Create sequelize tables
+    - games
+    - platforms
 Insert data (use pre-built data arrays)
 Set up End points time permitting ?
 
 W11D3
 Set up end points (if not done before)
+Have join table/ seeder set up prior to EOD
+    - reviews
+    - gamePlatforms join table
 Add relationships to models
-Add queries to end points to fetch/create/update appropriate data
+Add queries to end points to 2 fetches (get all games, get a game by id) /create appropriate data
 Format and send response to front end via res.render
 
 W11D4
