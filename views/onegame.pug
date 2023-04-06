@@ -1,21 +1,21 @@
 extends layout.pug
 block content
     h2=game.gameName
-    p=game.releaseYear
+    p Released: #{game.releaseYear}
     h3 Platforms
     each platform in platforms
         p= platform.platform
     h3 Add a review
     each error in errors
         p=error
-    form(action=`/games/${game.id}/reviews` method="post") 
+    form(action=`/games/${game.id}/reviews` method="post")
         label(for="review") Review
-        textarea(name="review", cols="30", rows="10") 
+        textarea(name="review", cols="30", rows="10")
         label(for="rating") Rating
         input(type="number" name="rating")
         button Create Review
     h3 Reviews
     each review in reviews
-        p=review.review
-        div=review.rating
-        div=review.createdAt
+        p Review: #{review.review}
+        div Rating: #{review.rating}
+        div Reviewed on: #{review.createdAt}

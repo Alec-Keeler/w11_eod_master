@@ -3,6 +3,6 @@ block content
     h1 All of Our Games
     each game in games
         h2=game.gameName
-        p=game.releaseYear
-        p=game.avgRating
+        p Released: #{game.releaseYear}
+        p Average Rating: #{game.avgRating}
         a(href=`/games/${game.id}`) View Game 

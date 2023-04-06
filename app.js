@@ -49,6 +49,21 @@ app.get('/games', async(req, res) => {
     //     completeRecords.push(record)
     // }
 
+    // If Review model is included in initial query:
+    // for (let i = 0; i < games.length; i++) {
+    //     const game = games[i];
+    //     let record = game.toJSON()
+    //     let reviews = record.Reviews
+    //     let count = reviews.length
+    //     let ratingTotal = 0
+    //     for (let j = 0; j < reviews.length; j++) {
+    //         const rev = reviews[j];
+    //         ratingTotal = ratingTotal + rev.rating
+    //     }
+    //     record.avgRating = ratingTotal / count
+    //     completeRecords.push(record)
+    // }
+
     res.render('allgames.pug', {games: completeRecords})
 })
 
