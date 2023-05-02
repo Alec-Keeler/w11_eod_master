@@ -1,8 +1,12 @@
 extends layout.pug
 block content
-    h1 All of Our Games
-    each game in games
-        h2=game.gameName
-        p Released: #{game.releaseYear}
-        p Average Rating: #{game.avgRating}
-        a(href=`/games/${game.id}`) View Game 
+    link(rel="stylesheet", href="/stylesheets/games.css")
+    h1#games-heading All of Our Games
+    div#game-container
+        each game in games
+            div.game-card
+                h2.game-name.game-content=game.gameName
+                p.game-release.game-content Released: #{game.releaseYear}
+                p.game-rating.game-content Average Rating: #{game.avgRating}
+                
+                a.game-info.game-content(href=`/games/${game.id}`) View Game 

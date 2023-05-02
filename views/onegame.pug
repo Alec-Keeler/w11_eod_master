@@ -1,21 +1,32 @@
 extends layout.pug
 block content
-    h2=game.gameName
-    p Released: #{game.releaseYear}
-    h3 Platforms
-    each platform in platforms
-        p= platform.platform
-    h3 Add a review
-    each error in errors
-        p=error
-    form(action=`/games/${game.id}/reviews` method="post")
-        label(for="review") Review
-        textarea(name="review", cols="30", rows="10")
-        label(for="rating") Rating
-        input(type="number" name="rating")
-        button Create Review
-    h3 Reviews
-    each review in reviews
-        p Review: #{review.review}
-        div Rating: #{review.rating}
-        div Reviewed on: #{review.createdAt}
+    link(rel="stylesheet", href="/stylesheets/single-game.css")
+    div#single-game-container
+        div#create-review-container
+            div#title-container
+                h2.game-title=game.gameName
+                p.game-title-release Released: #{game.releaseYear}
+            div#platforms-container
+                h3.platform-title Platforms:
+                each platform in platforms
+                    p.platform= platform.platform
+            div#reviews-container
+                h3.new-review-heading Add a review
+                div#errors-container
+                    each error in errors
+                        p.error=error
+                form.review-form(action=`/games/${game.id}/reviews` method="post")  
+                    label(for="review") Review
+                    textarea(name="review", cols="50", rows="6")
+                    div#rating-container 
+                        label(for="rating") Rating
+                        input.review-rating(type="number" name="rating")
+                    button.review-submit Create Review
+        div#read-review-container
+            h3.review-heading Reviews
+            div#review-cards-container
+                each review in reviews
+                    div.review-card
+                        p.review Review: #{review.review}
+                        div.review-rating Rating: #{review.rating}
+                        div.review-date Reviewed on: #{review.createdAt}
